@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600;700;800&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@200;300;400;600;700;800&display=swap");
 
 * { box-sizing: border-box }
 
@@ -183,5 +183,34 @@ main .landing article p {
 
 main .landing article h1,
 main .landing article p {
-   margin: 0;
+   margin: 20px 0;
+}
+
+main .features {
+   padding: 60px 0;
+   background-color: #eee;
+}
+
+main .features .container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 20px;
+   text-align: center;
+}
+
+main .features .container article svg {
+   color: var(--theme-color);
+   font-family: "Font Awesome";
+   font-size: 50px;
+}
+
+main .features .container article h4 {
+   font-size: 1.17em;
+   font-weight: 800;
+   text-transform: capitalize;
+}
+
+main .features .container article p {
+   font-size: 17px;
+   color: var(--theme-color2);
 }
