@@ -84,10 +84,11 @@ header .container.nav .links:hover .icon span:nth-child(2) {
 }
 
 header .container.nav .links ul {
+   --submenu-bgcolor: #eee;
    list-style: none;
    padding: 0;
    margin: 0;
-   background-color: #eee;
+   background-color: var(--submenu-bgcolor);
    position: absolute;
    right: 5px;
    font-size: 22px;
@@ -95,6 +96,7 @@ header .container.nav .links ul {
    text-transform: capitalize;
    min-width: 200px;
    display: none;
+   z-index: 5;
 }
 
 header .container.nav .links:hover ul {
@@ -110,20 +112,76 @@ header .container.nav ul::after {
    height: 0;
    border-width: 9px;
    border-style: solid;
-   border-color: transparent #eee #eee transparent;
+   border-color:
+      transparent
+      var(--submenu-bgcolor)
+      var(--submenu-bgcolor)
+      transparent
+   ;
+}
+
+header .container.nav ul::before {
+   content: "";
+   --height: 20px;
+   position: absolute;
+   top: calc(var(--height) * -1);
+   right: 0;
+   width: 100%;
+   height: var(--height);
 }
 
 header .container.nav ul li {
-   padding: 10px;
+   padding: 15px;
    border-bottom: 1px solid #aaa;
    transition: .5s;
 }
 
-header .container.nav ul li:hover {
+header .container.nav ul li a { transition: .5s }
+
+header .container.nav ul li:hover a {
    margin-left: 10px;
 }
 
 header .container.nav ul li a {
    text-decoration: none;
    color: unset;
+}
+
+main .landing {
+   background-image: url(../images/mountain.jpg);
+   background-size: cover;
+   text-transform: capitalize;
+   height: calc(100vh - 65px);
+   position: relative;
+}
+
+main .landing article {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   width: 320px;
+   max-width: 100%;
+}
+
+main .landing article h1 {
+   color: var(--theme-color);
+   font-weight: bold;
+   font-size: 50px;
+}
+
+@media (max-width: 320px) {
+   main .landing article h1 {
+      font-size: 45px;
+   }
+}
+
+main .landing article p {
+   font-size: 20px;
+}
+
+main .landing article h1,
+main .landing article p {
+   margin: 0;
 }
