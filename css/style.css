@@ -5,6 +5,11 @@
 :root {
    --theme-color: #10cab7;
    --theme-color2: #2c4755;
+   --sect-bgcolor: #eee;
+}
+
+html {
+   scroll-behavior: smooth;
 }
 
 body {
@@ -17,7 +22,7 @@ body {
 }
 
 /* very small */
-@media (max-width: 767px){
+@media (max-width: 767px) {
    .container {
       padding: 0 15px;
    }
@@ -100,7 +105,20 @@ header .container.nav .links ul {
 }
 
 header .container.nav .links:hover ul {
+   animation: submenu-animation .5s;
    display: block;
+}
+
+@keyframes submenu-animation {
+   from {
+      transform: scale(0);
+      transform-origin: right top;
+      opacity: 0;
+   }
+   to {
+      opacity: 1;
+      transform: scale(1);
+   }
 }
 
 header .container.nav ul::after {
@@ -179,6 +197,7 @@ main .landing article h1 {
 
 main .landing article p {
    font-size: 20px;
+   line-height: 30px;
 }
 
 main .landing article h1,
@@ -186,31 +205,138 @@ main .landing article p {
    margin: 20px 0;
 }
 
-main .features {
+main section#features {
    padding: 60px 0;
-   background-color: #eee;
+   background-image: linear-gradient(transparent 0%, var(--sect-bgcolor) 30%);
 }
 
-main .features .container {
+main section#features .container {
    display: grid;
    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
    gap: 20px;
    text-align: center;
 }
 
-main .features .container article svg {
+main section#features .container article svg {
    color: var(--theme-color);
    font-family: "Font Awesome";
    font-size: 50px;
 }
 
-main .features .container article h4 {
+main section#features .container article h4 {
    font-size: 1.17em;
    font-weight: 800;
    text-transform: capitalize;
 }
 
-main .features .container article p {
+main section#features .container article p {
    font-size: 17px;
    color: var(--theme-color2);
+}
+
+.nice-heading {
+   text-align: center;
+}
+
+.nice-heading > h1 {
+   font-size: 100px;
+   text-transform: capitalize;
+   font-weight: 800;
+   color: #eee;
+   margin: 0;
+}
+
+.nice-heading > p {
+   font-size: 20px;
+   margin: -30px 0 0 0;
+   color: var(--theme-color2);
+}
+
+@media (max-width: 767px) {
+   .nice-heading > h1 {
+      font-size: 60px;
+   }
+   .nice-heading > p {
+      margin: -20px 0 0 0;
+   }
+}
+
+@media (max-width: 316px) {
+   .nice-heading > h1 {
+      font-size: 50px;
+   }
+   .nice-heading > p {
+      font-size: 15px;
+      margin: -18px 0 0 0;
+   }
+}
+
+main section#services { padding: 60px 0 }
+
+main section#services .services-content {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 30px;
+   margin-top: 100px;
+}
+
+main section#services .services-content .col .serv {
+   position: relative;
+}
+
+main section#services .services-content .col article {
+   display: flex;
+   margin-bottom: 40px;
+   flex-wrap: wrap;
+}
+
+@media (max-width: 767px) {
+   main section#services .services-content .col article {
+      flex-direction: column;
+   }
+   main section#services .services-content .col {
+      text-align: center;
+   }
+}
+
+main section#services .services-content .col svg {
+   font-size: 2em;
+   color: var(--theme-color);
+   flex-basis: 60px;
+}
+
+main section#services .services-content .col article h3 {
+   text-transform: capitalize;
+}
+
+main section#services .services-content .col article p {
+   color: var(--theme-color2);
+   margin: 0;
+}
+
+main section#services .services-content .col .serv.image {
+   position: relative;
+   text-align: center;
+}
+
+main section#services .services-content .col .serv.image::before {
+   content: "";
+   position: absolute;
+   background-color: var(--theme-color2);
+   width: 100px;
+   height: calc(100% + 100px);
+   top: -50px;
+   right: 0;
+   z-index: -1;
+}
+
+main section#services .services-content .col img {
+   width: 270px;
+   height: 355px;
+}
+
+@media (max-width: 1199px) {
+   main section#services .services-content .col.image {
+      display: none;
+   }
 }
