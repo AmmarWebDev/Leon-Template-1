@@ -5,7 +5,13 @@
 :root {
    --theme-color: #10cab7;
    --theme-color2: #2c4755;
-   --sect-bgcolor: #eee;
+   --sect-bgcolor: #f6f6f6;
+   --sect-padding: 60px;
+}
+
+::selection {
+   color: var(--theme-color);
+   background-color: var(--theme-color2);
 }
 
 html {
@@ -206,8 +212,8 @@ main .landing article p {
 }
 
 main section#features {
-   padding: 60px 0;
-   background-image: linear-gradient(transparent 0%, var(--sect-bgcolor) 30%);
+   padding: var(--sect-padding);
+   background-color: var(--sect-bgcolor);
 }
 
 main section#features .container {
@@ -242,7 +248,7 @@ main section#features .container article p {
    font-size: 100px;
    text-transform: capitalize;
    font-weight: 800;
-   color: #eee;
+   color: #ebeced;
    margin: 0;
 }
 
@@ -271,7 +277,7 @@ main section#features .container article p {
    }
 }
 
-main section#services { padding: 60px 0 }
+main section#services { padding: var(--sect-padding) }
 
 main section#services .services-content {
    display: grid;
@@ -339,4 +345,55 @@ main section#services .services-content .col img {
    main section#services .services-content .col.image {
       display: none;
    }
+}
+
+main section#portfolio {
+   background-color: var(--sect-bgcolor);
+   padding: var(--sect-padding);
+}
+
+main section#portfolio .content {
+   display: grid;
+   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+   gap: 30px;
+   margin: 80px 0;
+}
+
+main section#portfolio .card {
+   border-radius: 3px;
+   overflow: hidden;
+}
+
+main section#portfolio .card img {
+   width: 100%;
+}
+
+main section#portfolio .card article {
+   background-color: #fff;
+   padding: 20px;
+}
+
+main section#portfolio .card article h3 {
+   text-transform: capitalize;
+   margin: 5px 0;
+}
+
+main section#portfolio .button { margin: auto }
+
+main section#portfolio .button button {
+   cursor: pointer;
+   text-transform: capitalize;
+   background-color: transparent;
+   outline: none;
+   padding: 5px 8px;
+   border: 1px solid var(--theme-color);
+   border-radius: 5px;
+   color: var(--theme-color2);
+   font-weight: bold;
+   transition: .5s;
+}
+
+main section#portfolio .button button:hover {
+   background-color: var(--theme-color);
+   color: var(--sect-bgcolor);
 }
