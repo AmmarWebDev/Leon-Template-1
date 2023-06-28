@@ -290,20 +290,23 @@ main section#services .services-content {
 
 main section#services .services-content .col .serv {
   position: relative;
+  display: flex;
 }
 
 main section#services .services-content .col article {
-  display: flex;
   margin-bottom: 40px;
-  flex-wrap: wrap;
+  flex: 1;
 }
 
-@media (max-width: 767px) {
-  main section#services .services-content .col article {
-    flex-direction: column;
+@media (max-width: 660px) {
+  main section#services .container {
+    width: 400px;
   }
-  main section#services .services-content .col {
-    text-align: center;
+}
+
+@media (max-width: 404px) {
+  main section#services .container {
+    width: 300px;
   }
 }
 
@@ -311,6 +314,7 @@ main section#services .services-content .col svg {
   font-size: 2em;
   color: var(--theme-color);
   flex-basis: 60px;
+  padding: 15px 0;
 }
 
 main section#services .services-content .col article h3 {
